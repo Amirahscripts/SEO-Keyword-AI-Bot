@@ -1,0 +1,42 @@
+The data used here in from the gensim library from the Word2Vec model. This can be altered to any search library or data. 
+
+from gensim.models import Word2Vec
+from gensim.models.keyedvectors import KeyedVectors
+
+class KeywordResearchTool:
+    def __init__(self, model_path):
+        """
+        Initialize the tool with a pre-trained Word2Vec model.
+        """
+        self.model = KeyedVectors.load_word2vec_format(model_path, binary=True)
+
+    def get_similar_keywords(self, keyword, topn=10):
+        """
+        Get topn similar keywords for a given keyword.
+        """
+        try:
+            similar_words = self.model.most_similar(positive=[keyword], topn=topn)
+            return [word[0] for word in similar_words]
+        except:
+            return []
+
+    def import_search_data(self, data_path):
+        """
+        Import search data from a file. For simplicity, we assume the file contains one keyword per line.
+        """
+        with open(data_path, 'r') as file:
+            self.keywords = [line.strip() for line in file.readlines()]
+
+    def generate_keyword_ideas(self, topn=10):
+        """
+        Generate keyword ideas for all imported keywords.
+        """
+        keyword_ideas = {}
+        for keyword in self.keywords:
+            keyword_ideas[keyword] = self.get_similar_keywords(keyword, topn=topn)
+        return keyword_ideas
+
+# Example usage:
+# tool = KeywordResearchTool('path_to_pretrained_model/GoogleNews-vectors-negative300.bin')
+# tool.import_search_data('path_to_search_data.txt')
+# print(tool.generate_keyword_ideas())
