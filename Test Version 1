@@ -1,3 +1,5 @@
+This version uses the gensim library from the Word2Vec model. Other libraries can be used instead depending on the client. 
+
 from gensim.models import Word2Vec
 from gensim.models.keyedvectors import KeyedVectors
 
@@ -8,6 +10,8 @@ class KeywordResearchTool:
         """
         self.model = KeyedVectors.load_word2vec_format(model_path, binary=True)
 
+This line defines a new class named KeywordResearchTool. This class will encapsulate all the functionalities of our keyword research tool.
+
     def get_similar_keywords(self, keyword, topn=10):
         """
         Get topn similar keywords for a given keyword.
@@ -17,6 +21,8 @@ class KeywordResearchTool:
             return [word[0] for word in similar_words]
         except:
             return []
+This method takes a keyword and returns a list of topn semantically similar keywords. 
+It uses the most_similar method from the Word2Vec model to get these keywords.
 
     def import_search_data(self, data_path):
         """
@@ -24,6 +30,7 @@ class KeywordResearchTool:
         """
         with open(data_path, 'r') as file:
             self.keywords = [line.strip() for line in file.readlines()]
+This method imports a list of keywords from a file. Each keyword is assumed to be on a separate line in the file. The keywords are stored in the self.keywords attribute.
 
     def generate_keyword_ideas(self, topn=10):
         """
@@ -34,7 +41,9 @@ class KeywordResearchTool:
             keyword_ideas[keyword] = self.get_similar_keywords(keyword, topn=topn)
         return keyword_ideas
 
-# Example usage:
-# tool = KeywordResearchTool('path_to_pretrained_model/GoogleNews-vectors-negative300.bin')
-# tool.import_search_data('path_to_search_data.txt')
-# print(tool.generate_keyword_ideas())
+This method generates keyword ideas for all the imported keywords. For each keyword, it finds topn similar keywords and stores them in a dictionary. 
+The dictionary's keys are the original keywords, and the values are lists of similar keywords.
+
+
+
+
