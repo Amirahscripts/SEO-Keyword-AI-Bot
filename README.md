@@ -1,7 +1,7 @@
 # SEO-Keyword-AI-Bot
 This bot can help drive traffic by uncovering semantically related keywords, enabling businesses to target a broader set of search terms and capture a wider audience searching for related topics.
 
-This Bot is coded in Python and is currently in development. 
+This Bot is coded in Python and is currently in testing. 
 
 Below is a breakdown of the utilities for the SEO-Keyword-AI-Bot: 
 
