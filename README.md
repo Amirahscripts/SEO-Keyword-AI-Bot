@@ -1,7 +1,7 @@
 # SEO-Keyword-AI-Bot
-The Keyword AI bot suggests semantically related keywords using Word2Vec, aiding content creators in expanding topic coverage and enhancing SEO strategies.
+This bot can help drive traffic by uncovering semantically related keywords, enabling businesses to target a broader set of search terms and capture a wider audience searching for related topics.
 
-This Bot is coded in Python and is currently in development. It aims to help businesses word their marketing strategies and platforms efficiently to help consumer growth and to provide quality content. 
+This Bot is coded in Python and is currently in development. 
 
 Below is a breakdown of the utilities for the SEO-Keyword-AI-Bot: 
 
